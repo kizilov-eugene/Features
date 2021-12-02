@@ -1,0 +1,27 @@
+// COLORS //
+$color-black: #000;
+$color-white: #fff;
+
+// FONTS //
+$ff: "Oswald";
+$fh: "Helvetica";
+
+// FUNCTIONS //
+// @function strip-unit($num) {
+//   @return $num / ($num * 0 + 1);
+// }
+
+// @function rem($num) {
+//   @return (strip-unit($num) / 15) * 1rem;
+// }
+
+// VARIABLE //
+$fw: rem(500px);
+$fz: rem(14px);
+$base: rem(4px);
+
+// BREAKPOINTS //
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
