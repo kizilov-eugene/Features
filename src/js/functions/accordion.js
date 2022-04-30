@@ -8,7 +8,7 @@ function accordions(accordionsSelector, contentSelector, controlSelector, active
             const currentContent = currentTarget.querySelector(contentSelector),
             currentController = currentTarget.querySelector(controlSelector);
             
-            if(target == currentController) {
+            if(target.closest(controlSelector)) {
                 function hide(parent, content, controller) {
                     parent.classList.remove(activeClass);
                     content.style.maxHeight = '';

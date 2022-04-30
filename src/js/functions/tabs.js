@@ -1,5 +1,4 @@
 // tabs
-const tabsContainer = document.querySelector('.tabs__navigation');
 const tabs = document.querySelectorAll('.tabs__btn');
 const tabsContent = document.querySelectorAll('.tabs__content');
 
@@ -25,14 +24,11 @@ function showTabs(i = 0) {
 hideTabs();
 showTabs();
 
-tabsContainer.addEventListener('click', ({target}) => {
-    if(target.classList.contains('tabs__btn')) {
-        tabs.forEach((item, i) => {
-            if(target == item) {
-                hideTabs();
-                showTabs(i);
-            }
-        });
-    }
+tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+        hideTabs();
+        showTabs(i);
+    });
 });
+
 // tabs end
