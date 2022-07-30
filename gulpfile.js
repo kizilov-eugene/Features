@@ -4,7 +4,7 @@ const cleanCSS = require("gulp-clean-css");
 const uglify = require("gulp-uglify-es").default;
 const del = require("del");
 const browserSync = require("browser-sync").create();
-const sass = require("gulp-sass");
+// const sass = require("gulp-sass");
 const rename = require("gulp-rename");
 const fileinclude = require("gulp-file-include");
 const gutil = require("gulp-util");
@@ -159,34 +159,34 @@ const fontsStyle = (done) => {
   done();
 };
 
-const styles = () => {
-  return src("./src/scss/**/*.scss")
-    .pipe(sourcemaps.init())
-    .pipe(
-      sass({
-        outputStyle: "expanded",
-      }).on("error", notify.onError())
-    )
-    .pipe(
-      rename({
-        suffix: ".min",
-      })
-    )
-    .pipe(
-      autoprefixer({
-        cascade: false,
-      })
-    )
-    .pipe(webpCss())
-    .pipe(
-      cleanCSS({
-        level: 2,
-      })
-    )
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("./app/css/"))
-    .pipe(browserSync.stream());
-};
+// const styles = () => {
+//   return src("./src/scss/**/*.scss")
+//     .pipe(sourcemaps.init())
+//     .pipe(
+//       sass({
+//         outputStyle: "expanded",
+//       }).on("error", notify.onError())
+//     )
+//     .pipe(
+//       rename({
+//         suffix: ".min",
+//       })
+//     )
+//     .pipe(
+//       autoprefixer({
+//         cascade: false,
+//       })
+//     )
+//     .pipe(webpCss())
+//     .pipe(
+//       cleanCSS({
+//         level: 2,
+//       })
+//     )
+//     .pipe(sourcemaps.write("."))
+//     .pipe(dest("./app/css/"))
+//     .pipe(browserSync.stream());
+// };
 
 const scripts = () => {
   return src("./src/js/main.js")
@@ -231,7 +231,7 @@ const watchFiles = () => {
     },
   });
 
-  watch("./src/scss/**/*.scss", styles);
+  // watch("./src/scss/**/*.scss", styles);
   watch("./src/js/**/*.js", scripts);
   watch("./src/html/*.html", htmlInclude);
   watch("./src/*.html", htmlInclude);
@@ -249,7 +249,7 @@ const clean = () => {
 };
 
 exports.fileinclude = htmlInclude;
-exports.styles = styles;
+// exports.styles = styles;
 exports.scripts = scripts;
 exports.watchFiles = watchFiles;
 exports.fonts = fonts;
@@ -259,7 +259,7 @@ exports.default = series(
   clean,
   parallel(htmlInclude, scripts, fonts, resources, imgToApp, svgSprites),
   fontsStyle,
-  styles,
+  // styles,
   watchFiles
 );
 
@@ -281,9 +281,9 @@ const tinypng = () => {
 const stylesBuild = () => {
   return src("./src/scss/**/*.scss")
     .pipe(
-      sass({
-        outputStyle: "expanded",
-      }).on("error", notify.onError())
+      // sass({
+      //   outputStyle: "expanded",
+      // }).on("error", notify.onError())
     )
     .pipe(
       rename({

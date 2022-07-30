@@ -19,7 +19,6 @@ function accordions(accordionsSelector, contentSelector, controlSelector, active
                 if(el.classList.contains(activeClass)) {
                     hide(currentTarget, currentContent, currentController);
                 } else {
-                    
                     accordions.forEach(item => {
                         const content = item.querySelector(contentSelector),
                         controller = item.querySelector(controlSelector);
